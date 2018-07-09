@@ -1,18 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@color/colorGray100"
+        android:iconifiedByDefault="false"
+        android:inputType="text"
+        android:queryBackground="@android:color/transparent"
+        android:queryHint="@string/find_a_repository"
+        android:textColor="@color/colorGray700"
+        android:textColorHint="@color/colorGray500"
+        android:textSize="@dimen/textview_H3_size" />
 
-</android.support.constraint.ConstraintLayout>
+    <include layout="@layout/view_divider" />
+
+    <Spinner
+        android:id="@+id/spinnerSortTypes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/sorting_types"
+        android:paddingBottom="@dimen/spacing_small"
+        android:paddingEnd="@dimen/base_layout_padding"
+        android:paddingStart="@dimen/base_layout_padding"
+        android:paddingTop="@dimen/spacing_small" />
+
+    <include layout="@layout/view_divider" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textViewNoResults"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/no_results"
+            android:visibility="gone" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerViewResults"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+
+    </FrameLayout>
+
+
+</LinearLayout>
