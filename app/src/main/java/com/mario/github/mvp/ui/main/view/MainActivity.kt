@@ -37,7 +37,7 @@ class MainActivity : BaseActivity(), MainMVPView {
         setContentView(R.layout.activity_main)
         presenter.onAttach(this)
 
-        val searchView = findViewById<SearchView>(R.id.searchView)
+        val searchView = findViewById<SearchView>(R.id.searchview)
 
         initRxSearch(searchView)
 
@@ -47,14 +47,14 @@ class MainActivity : BaseActivity(), MainMVPView {
     }
 
     private fun initRecyclerView() {
-        recyclerViewResults.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
-        recyclerViewResults.setHasFixedSize(true)
-        recyclerViewResults.adapter = mainAdapter
+        recyclerview_results.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        recyclerview_results.setHasFixedSize(true)
+        recyclerview_results.adapter = mainAdapter
     }
 
     private fun initRxSearch(searchView: SearchView) {
         RxSearchView.queryTextChanges(searchView)
-                .debounce(500, TimeUnit.MILLISECONDS)
+                .debounce(400, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : Observer<CharSequence> {
                     override fun onSubscribe(d: Disposable) {
@@ -95,11 +95,11 @@ class MainActivity : BaseActivity(), MainMVPView {
 
     fun showRecyclerView(show: Boolean) {
         if (show) {
-            recyclerViewResults.visibility = View.VISIBLE
-            textViewNoResults.visibility = View.GONE
+            recyclerview_results.visibility = View.VISIBLE
+            textview_no_results.visibility = View.GONE
         } else {
-            recyclerViewResults.visibility = View.GONE
-            textViewNoResults.visibility = View.VISIBLE
+            recyclerview_results.visibility = View.GONE
+            textview_no_results.visibility = View.VISIBLE
         }
     }
 

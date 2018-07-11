@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <SearchView
-        android:id="@+id/searchView"
+        android:id="@+id/searchview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorGray100"
@@ -21,7 +21,7 @@
     <include layout="@layout/view_divider" />
 
     <Spinner
-        android:id="@+id/spinnerSortTypes"
+        android:id="@+id/spinner_sort_types"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/sorting_types"
@@ -37,7 +37,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textViewNoResults"
+            android:id="@+id/textview_no_results"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -46,7 +46,7 @@
             android:visibility="gone" />
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/recyclerViewResults"
+            android:id="@+id/recyclerview_results"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layoutManager="android.support.v7.widget.LinearLayoutManager" />

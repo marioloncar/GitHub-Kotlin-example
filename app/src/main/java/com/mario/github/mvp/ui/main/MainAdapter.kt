@@ -38,11 +38,11 @@ class MainAdapter(val listener: (Int) -> Unit) : RecyclerView.Adapter<MainAdapte
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageViewThumb = itemView.findViewById<ImageView>(R.id.imageView_thumb)
-        val textViewRepoName = itemView.findViewById<TextView>(R.id.textView_repo_name)
-        val textViewAuthorName = itemView.findViewById<TextView>(R.id.textView_author_name)
-        val textViewWatchers = itemView.findViewById<TextView>(R.id.textView_watchers)
-        val textViewForks = itemView.findViewById<TextView>(R.id.textView_forks)
-        val textViewIssues = itemView.findViewById<TextView>(R.id.textView_issues)
+        val imageViewThumb = itemView.findViewById<ImageView>(R.id.imageview_thumb)
+        val textViewRepoName = itemView.findViewById<TextView>(R.id.textview_repo_name)
+        val textViewAuthorName = itemView.findViewById<TextView>(R.id.textview_author_name)
+        val textViewWatchers = itemView.findViewById<TextView>(R.id.textview_watchers)
+        val textViewForks = itemView.findViewById<TextView>(R.id.textview_forks)
+        val textViewIssues = itemView.findViewById<TextView>(R.id.textview_issues)
     }
 }

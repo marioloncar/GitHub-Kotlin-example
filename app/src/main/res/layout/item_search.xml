@@ -12,7 +12,7 @@
     android:paddingTop="@dimen/spacing_small">
 
     <ImageView
-        android:id="@+id/imageView_thumb"
+        android:id="@+id/imageview_thumb"
         android:layout_width="@dimen/image_search_thumb_size"
         android:layout_height="@dimen/image_search_thumb_size"
         tools:src="@mipmap/ic_launcher" />
@@ -24,7 +24,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView_repo_name"
+            android:id="@+id/textview_repo_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorGray900"
@@ -32,7 +32,7 @@
             tools:text="Repository #1" />
 
         <TextView
-            android:id="@+id/textView_author_name"
+            android:id="@+id/textview_author_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorGray700"
@@ -57,7 +57,7 @@
                     android:src="@drawable/ic_star" />
 
                 <TextView
-                    android:id="@+id/textView_watchers"
+                    android:id="@+id/textview_watchers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
@@ -78,7 +78,7 @@
                     android:src="@drawable/ic_fork" />
 
                 <TextView
-                    android:id="@+id/textView_forks"
+                    android:id="@+id/textview_forks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
@@ -99,7 +99,7 @@
                     android:src="@drawable/ic_issue" />
 
                 <TextView
-                    android:id="@+id/textView_issues"
+                    android:id="@+id/textview_issues"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
