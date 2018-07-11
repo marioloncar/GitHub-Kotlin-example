@@ -16,4 +16,11 @@ class MainPresenter<V : MainMVPView, I : MainMVPInteractor> @Inject internal con
     override fun onAttach(view: V?) {
         super.onAttach(view)
     }
+
+    override fun searchRepositories(keyword: String) {
+        interactor
+                ?.getSearchResults(keyword)
+                ?.compose(schedulerProvider.ioToMainObservableScheduler())
+                ?.subscribe { t -> getView()?.showSearchResults(t) }
+    }
 }

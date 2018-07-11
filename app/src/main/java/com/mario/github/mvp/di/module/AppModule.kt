@@ -2,6 +2,8 @@ package com.mario.github.mvp.di.module
 
 import android.app.Application
 import android.content.Context
+import com.mario.github.mvp.data.network.ApiHelper
+import com.mario.github.mvp.data.network.remote.RepoService
 import com.mario.github.mvp.data.preferences.AppPreferenceHelper
 import com.mario.github.mvp.data.preferences.PreferenceHelper
 import com.mario.github.mvp.di.PreferenceInfo
@@ -43,5 +45,11 @@ class AppModule {
     @Provides
     internal fun provideSchedulerProvider(): SchedulerProvider = SchedulerProvider()
 
+    @Provides
+    internal fun provideRepoService(): RepoService = RepoService()
+
+    @Provides
+    @Singleton
+    internal fun provideApiHelper(apiHelper: ApiHelper): ApiHelper = apiHelper
 
 }

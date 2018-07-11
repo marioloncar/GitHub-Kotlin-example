@@ -1,4 +1,4 @@
-package com.mario.github.mvp.data.network
+package com.mario.github.mvp.data.network.model
 
 import com.google.gson.annotations.SerializedName
 

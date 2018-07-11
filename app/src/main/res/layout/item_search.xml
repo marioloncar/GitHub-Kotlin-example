@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/spacing_small"
+    android:paddingEnd="@dimen/base_layout_padding"
+    android:paddingStart="@dimen/base_layout_padding"
+    android:paddingTop="@dimen/spacing_small">
+
+    <ImageView
+        android:id="@+id/imageView_thumb"
+        android:layout_width="@dimen/image_search_thumb_size"
+        android:layout_height="@dimen/image_search_thumb_size"
+        tools:src="@mipmap/ic_launcher" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_small"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView_repo_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorGray900"
+            android:textSize="@dimen/textview_H2_size"
+            tools:text="Repository #1" />
+
+        <TextView
+            android:id="@+id/textView_author_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorGray700"
+            android:textSize="@dimen/textview_H5_size"
+            tools:text="Mario Loncar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/image_small_icon_size"
+                    android:layout_height="@dimen/image_small_icon_size"
+                    android:src="@drawable/ic_star" />
+
+                <TextView
+                    android:id="@+id/textView_watchers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:textSize="@dimen/textview_H4_size"
+                    tools:text="2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_medium"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/image_small_icon_size"
+                    android:layout_height="@dimen/image_small_icon_size"
+                    android:src="@drawable/ic_fork" />
+
+                <TextView
+                    android:id="@+id/textView_forks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:textSize="@dimen/textview_H4_size"
+                    tools:text="3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_medium"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/image_small_icon_size"
+                    android:layout_height="@dimen/image_small_icon_size"
+                    android:src="@drawable/ic_issue" />
+
+                <TextView
+                    android:id="@+id/textView_issues"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:textSize="@dimen/textview_H4_size"
+                    tools:text="1" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
