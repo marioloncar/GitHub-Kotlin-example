@@ -22,4 +22,7 @@ class MainActivityModule {
     internal fun provideMainPresenter(mainPresenter: MainPresenter<MainMVPView, MainMVPInteractor>)
             : MainMVPPresenter<MainMVPView, MainMVPInteractor> = mainPresenter
 
+    @Provides
+    internal fun provideMainAdapter(): MainAdapter = MainAdapter()
+
 }

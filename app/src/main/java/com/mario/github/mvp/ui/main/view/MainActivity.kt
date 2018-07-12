@@ -32,8 +32,10 @@ class MainActivity : BaseActivity(), MainMVPView, AdapterView.OnItemSelectedList
     @Inject
     internal lateinit var presenter: MainMVPPresenter<MainMVPView, MainMVPInteractor>
 
+    @Inject
+    internal lateinit var mainAdapter: MainAdapter
+
     lateinit var disposable: Disposable
-    lateinit var mainAdapter: MainAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +46,6 @@ class MainActivity : BaseActivity(), MainMVPView, AdapterView.OnItemSelectedList
 
         initRxSearch(searchView)
 
-        mainAdapter = MainAdapter()
         spinner_sort_types.onItemSelectedListener = this
 
         recyclerview_results.addOnItemClickListener(object: OnItemClickListener {
