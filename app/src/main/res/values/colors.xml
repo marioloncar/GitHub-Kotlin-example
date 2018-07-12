@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">@color/colorRed700</color>
-    <color name="colorPrimaryDark">@color/colorRed900</color>
+    <color name="colorPrimary">@color/colorTeal700</color>
+    <color name="colorPrimaryDark">@color/colorTeal900</color>
     <color name="colorAccent">@color/colorGray700</color>
 
     <!-- Base colors -->
-    <color name="colorRed700">#D32F2F</color>
-    <color name="colorRed900">#B71C1C</color>
+    <color name="colorTeal700">#00796B</color>
+    <color name="colorTeal900">#004D40</color>
 
     <color name="colorGray100">#F5F5F5</color>
     <color name="colorGray300">#E0E0E0</color>
