@@ -11,7 +11,7 @@ import com.mario.github.mvp.data.network.model.Repo
 import com.mario.github.mvp.util.extension.loadImage
 import java.util.*
 
-class MainAdapter(val listener: (Int) -> Unit) : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
+class MainAdapter : RecyclerView.Adapter<MainAdapter.ViewHolder>() {
 
     private var itemList: MutableList<Repo> = ArrayList()
 
@@ -28,13 +28,14 @@ class MainAdapter(val listener: (Int) -> Unit) : RecyclerView.Adapter<MainAdapte
     override fun getItemCount(): Int = itemList.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        itemList[position].owner?.avatarUrl?.let { holder.imageViewThumb.loadImage(it) }
+        val item: Repo = itemList[position]
 
-        holder.textViewRepoName.text = itemList[position].name
-        holder.textViewAuthorName.text = itemList[position].owner?.login
-        holder.textViewWatchers.text = itemList[position].watchersCount.toString()
-        holder.textViewForks.text = itemList[position].forksCount.toString()
-        holder.textViewIssues.text = itemList[position].openIssuesCount.toString()
+        item.owner?.avatarUrl?.let { holder.imageViewThumb.loadImage(it) }
+        holder.textViewRepoName.text = item.name
+        holder.textViewAuthorName.text = item.owner?.login
+        holder.textViewWatchers.text = item.watchersCount.toString()
+        holder.textViewForks.text = item.forksCount.toString()
+        holder.textViewIssues.text = item.openIssuesCount.toString()
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

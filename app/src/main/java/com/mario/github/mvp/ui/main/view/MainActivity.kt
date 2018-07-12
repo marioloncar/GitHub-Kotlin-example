@@ -13,6 +13,8 @@ import com.mario.github.mvp.ui.base.view.BaseActivity
 import com.mario.github.mvp.ui.main.MainAdapter
 import com.mario.github.mvp.ui.main.interactor.MainMVPInteractor
 import com.mario.github.mvp.ui.main.presenter.MainMVPPresenter
+import com.mario.github.mvp.util.extension.OnItemClickListener
+import com.mario.github.mvp.util.extension.addOnItemClickListener
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -42,8 +44,14 @@ class MainActivity : BaseActivity(), MainMVPView, AdapterView.OnItemSelectedList
 
         initRxSearch(searchView)
 
-        mainAdapter = MainAdapter { /* OnClickListener */ }
+        mainAdapter = MainAdapter()
         spinner_sort_types.onItemSelectedListener = this
+
+        recyclerview_results.addOnItemClickListener(object: OnItemClickListener {
+            override fun onItemClicked(position: Int, view: View) {
+                // Logic
+            }
+        })
 
         initRecyclerView()
     }
