@@ -10,4 +10,5 @@ import com.mario.github.mvp.ui.main.view.MainMVPView
 
 interface MainMVPPresenter<V : MainMVPView, I : MainMVPInteractor> : MVPPresenter<V, I> {
     fun searchRepositories(keyword: String)
+    fun onSortTypeOptionSelected(sortType: String?)
 }

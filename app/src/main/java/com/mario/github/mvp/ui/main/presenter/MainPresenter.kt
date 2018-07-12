@@ -1,6 +1,7 @@
 package com.mario.github.mvp.ui.main.presenter
 
 import com.mario.github.mvp.data.network.model.Repo
+import com.mario.github.mvp.data.preferences.PreferenceHelper
 import com.mario.github.mvp.ui.base.presenter.BasePresenter
 import com.mario.github.mvp.ui.main.interactor.MainMVPInteractor
 import com.mario.github.mvp.ui.main.view.MainMVPView
@@ -13,7 +14,7 @@ import javax.inject.Inject
  * Created by mario on 09/07/18.
  */
 
-class MainPresenter<V : MainMVPView, I : MainMVPInteractor> @Inject internal constructor(interactor: I, schedulerProvider: SchedulerProvider, disposable: CompositeDisposable) : BasePresenter<V, I>(interactor = interactor, schedulerProvider = schedulerProvider, compositeDisposable = disposable), MainMVPPresenter<V, I> {
+class MainPresenter<V : MainMVPView, I : MainMVPInteractor> @Inject internal constructor(interactor: I, schedulerProvider: SchedulerProvider, disposable: CompositeDisposable, preferenceHelper: PreferenceHelper) : BasePresenter<V, I>(interactor = interactor, schedulerProvider = schedulerProvider, compositeDisposable = disposable), MainMVPPresenter<V, I> {
 
     private var itemList: MutableList<Repo> = ArrayList()
 
@@ -35,4 +36,9 @@ class MainPresenter<V : MainMVPView, I : MainMVPInteractor> @Inject internal con
                     }
                 }
     }
+
+    override fun onSortTypeOptionSelected(sortType: String?) {
+        interactor?.getPreferenceHelper()?.setSortType(sortType)
+    }
+
 }

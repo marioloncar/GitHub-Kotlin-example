@@ -1,5 +1,6 @@
 package com.mario.github.mvp.ui.base.presenter
 
+import com.mario.github.mvp.data.preferences.PreferenceHelper
 import com.mario.github.mvp.ui.base.interactor.MVPInteractor
 import com.mario.github.mvp.ui.base.view.MVPView
 import com.mario.github.mvp.util.SchedulerProvider

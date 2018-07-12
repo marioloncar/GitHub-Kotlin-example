@@ -3,6 +3,7 @@ package com.mario.github.mvp.ui.main.view
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import android.widget.AdapterView
 import android.widget.LinearLayout
 import android.widget.SearchView
 import com.jakewharton.rxbinding2.widget.RxSearchView
@@ -24,7 +25,7 @@ import javax.inject.Inject
  * Created by mario on 09/07/18.
  */
 
-class MainActivity : BaseActivity(), MainMVPView {
+class MainActivity : BaseActivity(), MainMVPView, AdapterView.OnItemSelectedListener {
 
     @Inject
     internal lateinit var presenter: MainMVPPresenter<MainMVPView, MainMVPInteractor>
@@ -42,6 +43,7 @@ class MainActivity : BaseActivity(), MainMVPView {
         initRxSearch(searchView)
 
         mainAdapter = MainAdapter { /* OnClickListener */ }
+        spinner_sort_types.onItemSelectedListener = this
 
         initRecyclerView()
     }
@@ -78,6 +80,16 @@ class MainActivity : BaseActivity(), MainMVPView {
                 })
     }
 
+    fun showRecyclerView(show: Boolean) {
+        if (show) {
+            recyclerview_results.visibility = View.VISIBLE
+            textview_no_results.visibility = View.GONE
+        } else {
+            recyclerview_results.visibility = View.GONE
+            textview_no_results.visibility = View.VISIBLE
+        }
+    }
+
     override fun onDestroy() {
         presenter.onDetach()
         disposable.dispose()
@@ -93,14 +105,13 @@ class MainActivity : BaseActivity(), MainMVPView {
         showRecyclerView(false)
     }
 
-    fun showRecyclerView(show: Boolean) {
-        if (show) {
-            recyclerview_results.visibility = View.VISIBLE
-            textview_no_results.visibility = View.GONE
-        } else {
-            recyclerview_results.visibility = View.GONE
-            textview_no_results.visibility = View.VISIBLE
-        }
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        val sortType = parent?.getItemAtPosition(position).toString()
+        presenter.onSortTypeOptionSelected(sortType)
+    }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+        presenter.onSortTypeOptionSelected(null)
     }
 
     override fun onFragmentAttached() {

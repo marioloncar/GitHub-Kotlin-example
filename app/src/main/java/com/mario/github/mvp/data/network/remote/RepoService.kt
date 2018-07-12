@@ -9,8 +9,7 @@ import retrofit2.http.Query
 class RepoService {
     private val repoApi = ApiHelper.createService(RepoApi::class.java)
 
-    // TODO 11/07/18 Sort type will later be changed
-    fun searchRepositories(keyword: String): Observable<RepoResponse> = repoApi.searchRepositories(keyword, "best match")
+    fun searchRepositories(keyword: String, sortType: String?): Observable<RepoResponse> = repoApi.searchRepositories(keyword, sortType)
 
     interface RepoApi {
         @GET("search/repositories")

@@ -24,4 +24,8 @@ interface PreferenceHelper {
 
     fun setAccessToken(accessToken: String?)
 
+    fun setSortType(sortType: String?)
+
+    fun getSortType(): String?
+
 }

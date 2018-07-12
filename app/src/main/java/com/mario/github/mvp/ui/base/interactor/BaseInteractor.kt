@@ -8,10 +8,14 @@ import com.mario.github.mvp.data.preferences.PreferenceHelper
 
 open class BaseInteractor() : MVPInteractor {
 
-    protected lateinit var preferenceHelper: PreferenceHelper
+    internal lateinit var preferenceHelper: PreferenceHelper
 
     constructor(preferenceHelper: PreferenceHelper) : this() {
         this.preferenceHelper = preferenceHelper
+    }
+
+    override fun getPreferenceHelper(): PreferenceHelper {
+        return preferenceHelper
     }
 
 }
