@@ -28,7 +28,7 @@
                 android:padding="@dimen/base_layout_padding">
 
                 <TextView
-                    android:id="@+id/textView_user_name"
+                    android:id="@+id/textview_user_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/spacing_small"
@@ -38,7 +38,7 @@
                     tools:text="Mario Loncar" />
 
                 <TextView
-                    android:id="@+id/textView_user_location"
+                    android:id="@+id/textview_user_location"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/spacing_small"
@@ -47,7 +47,7 @@
                     tools:text="Zagreb" />
 
                 <TextView
-                    android:id="@+id/textView_user_email"
+                    android:id="@+id/textview_user_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/spacing_small"
@@ -56,7 +56,7 @@
                     tools:text="loncar.mario1@gmail.com" />
 
                 <TextView
-                    android:id="@+id/textView_user_bio"
+                    android:id="@+id/textview_user_bio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/spacing_small"
@@ -94,7 +94,7 @@
                         android:textSize="@dimen/textview_H4_size" />
 
                     <TextView
-                        android:id="@+id/textView_user_public_repos"
+                        android:id="@+id/textview_user_public_repos"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/spacing_small"
@@ -118,7 +118,7 @@
                         android:textSize="@dimen/textview_H4_size" />
 
                     <TextView
-                        android:id="@+id/textView_user_followers"
+                        android:id="@+id/textview_user_followers"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/spacing_small"
@@ -142,7 +142,7 @@
                         android:textSize="@dimen/textview_H4_size" />
 
                     <TextView
-                        android:id="@+id/textView_user_created_at"
+                        android:id="@+id/textview_user_created_at"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/spacing_small"

@@ -21,7 +21,7 @@
                 android:padding="@dimen/base_layout_padding">
 
                 <TextView
-                    android:id="@+id/textView_repo_full_name"
+                    android:id="@+id/textview_repo_full_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -30,7 +30,7 @@
                     tools:text="Mario" />
 
                 <TextView
-                    android:id="@+id/textView_repo_description"
+                    android:id="@+id/textview_repo_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -57,7 +57,7 @@
                             android:src="@drawable/ic_star" />
 
                         <TextView
-                            android:id="@+id/textView_repo_watchers"
+                            android:id="@+id/textview_repo_watchers"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:maxLines="1"
@@ -78,7 +78,7 @@
                             android:src="@drawable/ic_fork" />
 
                         <TextView
-                            android:id="@+id/textView_repo_forks"
+                            android:id="@+id/textview_repo_forks"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:maxLines="1"
@@ -99,7 +99,7 @@
                             android:src="@drawable/ic_issue" />
 
                         <TextView
-                            android:id="@+id/textView_repo_issues"
+                            android:id="@+id/textview_repo_issues"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:maxLines="1"
@@ -135,7 +135,7 @@
                         android:textSize="@dimen/textview_H2_size" />
 
                     <TextView
-                        android:id="@+id/textView_repo_language"
+                        android:id="@+id/textview_repo_language"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/spacing_small"
@@ -160,7 +160,7 @@
                         android:textSize="@dimen/textview_H2_size" />
 
                     <ImageView
-                        android:id="@+id/imageView_repo_private"
+                        android:id="@+id/imageview_repo_private"
                         android:layout_width="@dimen/image_small_icon_size"
                         android:layout_height="@dimen/image_small_icon_size"
                         android:layout_marginStart="@dimen/spacing_small"
@@ -183,7 +183,7 @@
                         android:textSize="@dimen/textview_H2_size" />
 
                     <ImageView
-                        android:id="@+id/imageView_repo_fork"
+                        android:id="@+id/imageview_repo_fork"
                         android:layout_width="@dimen/image_small_icon_size"
                         android:layout_height="@dimen/image_small_icon_size"
                         android:layout_marginStart="@dimen/spacing_small"
@@ -205,7 +205,7 @@
                         android:textSize="@dimen/textview_H2_size" />
 
                     <ImageView
-                        android:id="@+id/imageView_repo_archived"
+                        android:id="@+id/imageview_repo_archived"
                         android:layout_width="@dimen/image_small_icon_size"
                         android:layout_height="@dimen/image_small_icon_size"
                         android:layout_marginStart="@dimen/spacing_small"
@@ -226,7 +226,7 @@
                         android:textSize="@dimen/textview_H2_size" />
 
                     <TextView
-                        android:id="@+id/textView_repo_created"
+                        android:id="@+id/textview_repo_created"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/spacing_small"
@@ -249,7 +249,7 @@
                         android:textSize="@dimen/textview_H2_size" />
 
                     <TextView
-                        android:id="@+id/textView_repo_last_update"
+                        android:id="@+id/textview_repo_last_update"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/spacing_small"

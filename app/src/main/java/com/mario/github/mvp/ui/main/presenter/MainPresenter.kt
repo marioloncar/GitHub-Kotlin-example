@@ -41,4 +41,9 @@ class MainPresenter<V : MainMVPView, I : MainMVPInteractor> @Inject internal con
         interactor?.getPreferenceHelper()?.setSortType(sortType)
     }
 
+    override fun onRepoClicked(position: Int) {
+        getView()?.openRepoDetails(itemList[position])
+    }
+
+
 }

@@ -10,4 +10,5 @@ import com.mario.github.mvp.ui.base.view.MVPView
 interface MainMVPView : MVPView {
     fun showSearchResults(items: List<Repo>)
     fun showNoResultsLabel()
+    fun openRepoDetails(repo: Repo)
 }

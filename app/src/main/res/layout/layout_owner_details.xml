@@ -26,7 +26,7 @@
                 android:padding="@dimen/base_layout_padding">
 
                 <TextView
-                    android:id="@+id/textView_owner_name"
+                    android:id="@+id/textview_owner_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorGray900"
@@ -49,7 +49,7 @@
                         android:textSize="@dimen/textview_H2_size" />
 
                     <TextView
-                        android:id="@+id/textView_owner_type"
+                        android:id="@+id/textview_owner_type"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/spacing_small"
@@ -73,7 +73,7 @@
                         android:textSize="@dimen/textview_H2_size" />
 
                     <ImageView
-                        android:id="@+id/imageView_owner_site_admin"
+                        android:id="@+id/imageview_owner_site_admin"
                         android:layout_width="@dimen/image_small_icon_size"
                         android:layout_height="@dimen/image_small_icon_size"
                         android:layout_marginStart="@dimen/spacing_small"

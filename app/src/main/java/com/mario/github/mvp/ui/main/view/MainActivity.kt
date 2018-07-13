@@ -1,22 +1,22 @@
 package com.mario.github.mvp.ui.main.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
 import android.view.View
 import android.widget.AdapterView
-import android.widget.LinearLayout
 import android.widget.SearchView
 import com.jakewharton.rxbinding2.widget.RxSearchView
 import com.mario.github.mvp.R
 import com.mario.github.mvp.data.network.model.Repo
 import com.mario.github.mvp.ui.base.view.BaseActivity
+import com.mario.github.mvp.ui.details.view.DetailsActivity
 import com.mario.github.mvp.ui.main.MainAdapter
 import com.mario.github.mvp.ui.main.interactor.MainMVPInteractor
 import com.mario.github.mvp.ui.main.presenter.MainMVPPresenter
 import com.mario.github.mvp.util.extension.OnItemClickListener
 import com.mario.github.mvp.util.extension.addOnItemClickListener
+import com.mario.github.mvp.util.extension.putParcel
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -30,6 +30,10 @@ import javax.inject.Inject
  */
 
 class MainActivity : BaseActivity(), MainMVPView, AdapterView.OnItemSelectedListener {
+
+    companion object {
+        const val REPO_PARCELABLE_KEY = "REPO_PARCELABLE_KEY"
+    }
 
     @Inject
     internal lateinit var presenter: MainMVPPresenter<MainMVPView, MainMVPInteractor>
@@ -61,14 +65,14 @@ class MainActivity : BaseActivity(), MainMVPView, AdapterView.OnItemSelectedList
         recyclerview_results.setHasFixedSize(true)
         recyclerview_results.adapter = mainAdapter
 
-        recyclerview_results.addOnItemClickListener(object: OnItemClickListener {
+        recyclerview_results.addOnItemClickListener(object : OnItemClickListener {
             override fun onItemClicked(position: Int, view: View) {
-                // Logic
+                presenter.onRepoClicked(position)
             }
         })
     }
 
-    private fun prepareSearchView(searchView: SearchView){
+    private fun prepareSearchView(searchView: SearchView) {
         RxSearchView.queryTextChanges(searchView)
                 .debounce(400, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -126,6 +130,12 @@ class MainActivity : BaseActivity(), MainMVPView, AdapterView.OnItemSelectedList
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
         presenter.onSortTypeOptionSelected(null)
+    }
+
+    override fun openRepoDetails(repo: Repo) {
+        val intent = Intent(this@MainActivity, DetailsActivity::class.java)
+        intent.putParcel(REPO_PARCELABLE_KEY, repo)
+        startActivity(intent)
     }
 
     override fun onFragmentAttached() {
