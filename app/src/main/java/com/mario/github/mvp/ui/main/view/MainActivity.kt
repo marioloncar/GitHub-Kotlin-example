@@ -43,8 +43,10 @@ class MainActivity : BaseActivity(), MainMVPView, AdapterView.OnItemSelectedList
         setContentView(R.layout.activity_main)
         presenter.onAttach(this)
 
+        val searchView = findViewById<SearchView>(R.id.searchview)
+
         spinner_sort_types.onItemSelectedListener = this
-        prepareSearchView()
+        prepareSearchView(searchView)
         prepareRecyclerView()
 
     }
@@ -61,9 +63,7 @@ class MainActivity : BaseActivity(), MainMVPView, AdapterView.OnItemSelectedList
         })
     }
 
-    private fun prepareSearchView(){
-        val searchView = findViewById<SearchView>(R.id.searchview)
-
+    private fun prepareSearchView(searchView: SearchView){
         RxSearchView.queryTextChanges(searchView)
                 .debounce(400, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
