@@ -2,6 +2,7 @@ package com.mario.github.mvp.ui.main.view
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.AdapterView
 import android.widget.LinearLayout
@@ -42,28 +43,27 @@ class MainActivity : BaseActivity(), MainMVPView, AdapterView.OnItemSelectedList
         setContentView(R.layout.activity_main)
         presenter.onAttach(this)
 
-        val searchView = findViewById<SearchView>(R.id.searchview)
-
-        initRxSearch(searchView)
-
         spinner_sort_types.onItemSelectedListener = this
+        prepareSearchView()
+        prepareRecyclerView()
+
+    }
+
+    private fun prepareRecyclerView() {
+        recyclerview_results.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        recyclerview_results.setHasFixedSize(true)
+        recyclerview_results.adapter = mainAdapter
 
         recyclerview_results.addOnItemClickListener(object: OnItemClickListener {
             override fun onItemClicked(position: Int, view: View) {
                 // Logic
             }
         })
-
-        initRecyclerView()
     }
 
-    private fun initRecyclerView() {
-        recyclerview_results.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
-        recyclerview_results.setHasFixedSize(true)
-        recyclerview_results.adapter = mainAdapter
-    }
+    private fun prepareSearchView(){
+        val searchView = findViewById<SearchView>(R.id.searchview)
 
-    private fun initRxSearch(searchView: SearchView) {
         RxSearchView.queryTextChanges(searchView)
                 .debounce(400, TimeUnit.MILLISECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
