@@ -1,7 +1,10 @@
 package com.mario.github.mvp.data.network.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Owner(@SerializedName("id")
                  var id: Int = 0,
 
@@ -30,5 +33,4 @@ data class Owner(@SerializedName("id")
                  var htmlUrl: String? = null,
 
                  @SerializedName("site_admin")
-                 var siteAdmin: Boolean = false
-)
+                 var siteAdmin: Boolean = false) : Parcelable

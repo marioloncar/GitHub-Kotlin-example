@@ -1,7 +1,10 @@
 package com.mario.github.mvp.data.network.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class User(@SerializedName("id")
                 var id: Int = 0,
 
@@ -30,4 +33,4 @@ data class User(@SerializedName("id")
                 var followers: Int = 0,
 
                 @SerializedName("created_at")
-                var createdAt: String? = null)
+                var createdAt: String? = null): Parcelable

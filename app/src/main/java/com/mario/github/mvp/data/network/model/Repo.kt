@@ -1,7 +1,10 @@
 package com.mario.github.mvp.data.network.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Repo(@SerializedName("watchers_count")
                 var watchersCount: Int = 0,
 
@@ -72,4 +75,4 @@ data class Repo(@SerializedName("watchers_count")
                 var fullName: String? = null,
 
                 @SerializedName("archived")
-                var archived: Boolean = false)
+                var archived: Boolean = false): Parcelable
