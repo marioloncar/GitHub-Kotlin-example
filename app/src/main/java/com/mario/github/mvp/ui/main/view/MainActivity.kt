@@ -3,6 +3,7 @@ package com.mario.github.mvp.ui.main.view
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.AdapterView
 import android.widget.LinearLayout
@@ -36,6 +37,9 @@ class MainActivity : BaseActivity(), MainMVPView, AdapterView.OnItemSelectedList
     @Inject
     internal lateinit var mainAdapter: MainAdapter
 
+    @Inject
+    internal lateinit var layoutManager: LinearLayoutManager
+
     lateinit var disposable: Disposable
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,7 +56,8 @@ class MainActivity : BaseActivity(), MainMVPView, AdapterView.OnItemSelectedList
     }
 
     private fun prepareRecyclerView() {
-        recyclerview_results.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
+        layoutManager.orientation = LinearLayoutManager.VERTICAL
+        recyclerview_results.layoutManager = layoutManager
         recyclerview_results.setHasFixedSize(true)
         recyclerview_results.adapter = mainAdapter
 
