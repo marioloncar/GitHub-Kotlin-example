@@ -1,4 +1,4 @@
-package com.mario.github.mvp.ui.details.owner.interactor
+package com.mario.github.mvp.ui.owner.interactor
 
 import com.mario.github.mvp.data.preferences.PreferenceHelper
 import com.mario.github.mvp.ui.base.interactor.BaseInteractor

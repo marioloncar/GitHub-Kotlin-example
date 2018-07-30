@@ -266,6 +266,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/base_layout_padding"
             android:layout_marginStart="@dimen/base_layout_padding"
+            android:onClick="onClick"
             android:text="@string/open_in_browser"
             android:textColor="@color/colorRed700" />
 
@@ -275,6 +276,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/base_layout_padding"
             android:layout_marginStart="@dimen/base_layout_padding"
+            android:onClick="onClick"
             android:text="@string/show_owner_details"
             android:textColor="@color/colorRed700" />
     </LinearLayout>

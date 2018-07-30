@@ -1,25 +1,28 @@
 package com.mario.github.mvp.ui.details.view
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import android.view.View
 import com.mario.github.mvp.R
+import com.mario.github.mvp.data.network.model.Owner
 import com.mario.github.mvp.data.network.model.Repo
 import com.mario.github.mvp.ui.base.view.BaseActivity
 import com.mario.github.mvp.ui.details.interactor.DetailsMVPInteractor
+import com.mario.github.mvp.ui.owner.view.OwnerActivity
 import com.mario.github.mvp.ui.details.presenter.DetailsMVPPresenter
 import com.mario.github.mvp.ui.main.view.MainActivity.Companion.REPO_PARCELABLE_KEY
 import com.mario.github.mvp.util.CommonUtil
 import com.mario.github.mvp.util.extension.getParcel
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.support.HasSupportFragmentInjector
+import com.mario.github.mvp.util.extension.putParcel
 import kotlinx.android.synthetic.main.activity_repo_details.*
 import javax.inject.Inject
 
-class DetailsActivity : BaseActivity(), DetailsMVPView, HasSupportFragmentInjector {
+class DetailsActivity : BaseActivity(), DetailsMVPView, View.OnClickListener {
 
-    @Inject
-    internal lateinit var fragmentDispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
+    companion object {
+        const val OWNER_PARCELABLE_KEY = "OWNER_PARCELABLE_KEY"
+    }
 
     @Inject
     internal lateinit var presenter: DetailsMVPPresenter<DetailsMVPView, DetailsMVPInteractor>
@@ -35,10 +38,6 @@ class DetailsActivity : BaseActivity(), DetailsMVPView, HasSupportFragmentInject
     }
 
     override fun onFragmentDetached(tag: String) {
-    }
-
-    override fun supportFragmentInjector(): AndroidInjector<Fragment> {
-        return fragmentDispatchingAndroidInjector
     }
 
     override fun getRepoExtra(): Repo? {
@@ -75,8 +74,25 @@ class DetailsActivity : BaseActivity(), DetailsMVPView, HasSupportFragmentInject
 
     }
 
+    override fun showRepoDetailsInBrowser(url: String) {
+        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+    }
+
+    override fun showOwnerDetails(owner: Owner) {
+        val intent = Intent(this@DetailsActivity, OwnerActivity::class.java)
+        intent.putParcel(OWNER_PARCELABLE_KEY, owner)
+        startActivity(intent)
+    }
+
     override fun onDestroy() {
         presenter.onDetach()
         super.onDestroy()
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.button_repo_open_in_browser -> presenter.onOpenInBrowserClicked()
+            R.id.button_repo_show_owner_details -> presenter.onShowOwnerDetailsClicked()
+        }
     }
 }
