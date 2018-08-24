@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?android:attr/selectableItemBackground"
     android:gravity="center"
     android:orientation="horizontal"
@@ -54,7 +55,7 @@
                 <ImageView
                     android:layout_width="@dimen/image_small_icon_size"
                     android:layout_height="@dimen/image_small_icon_size"
-                    android:src="@drawable/ic_star" />
+                    app:srcCompat="@drawable/ic_star" />
 
                 <TextView
                     android:id="@+id/textview_watchers"
@@ -75,7 +76,7 @@
                 <ImageView
                     android:layout_width="@dimen/image_small_icon_size"
                     android:layout_height="@dimen/image_small_icon_size"
-                    android:src="@drawable/ic_fork" />
+                    app:srcCompat="@drawable/ic_fork" />
 
                 <TextView
                     android:id="@+id/textview_forks"
@@ -96,7 +97,7 @@
                 <ImageView
                     android:layout_width="@dimen/image_small_icon_size"
                     android:layout_height="@dimen/image_small_icon_size"
-                    android:src="@drawable/ic_issue" />
+                    app:srcCompat="@drawable/ic_issue" />
 
                 <TextView
                     android:id="@+id/textview_issues"
