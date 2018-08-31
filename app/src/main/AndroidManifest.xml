@@ -16,6 +16,7 @@
         <activity
             android:name=".ui.main.view.MainActivity"
             android:label="Search"
+            android:theme="@style/AppThemeNoActionBar"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.splash.SplashActivity"

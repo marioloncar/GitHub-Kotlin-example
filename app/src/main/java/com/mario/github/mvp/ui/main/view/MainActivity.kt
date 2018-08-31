@@ -23,6 +23,7 @@ import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_main.*
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
+import java.util.function.Predicate
 import javax.inject.Inject
 
 /**
@@ -75,6 +76,7 @@ class MainActivity : BaseActivity(), MainMVPView, AdapterView.OnItemSelectedList
     private fun prepareSearchView(searchView: SearchView) {
         RxSearchView.queryTextChanges(searchView)
                 .debounce(400, TimeUnit.MILLISECONDS)
+                .distinctUntilChanged()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : Observer<CharSequence> {
                     override fun onSubscribe(d: Disposable) {
