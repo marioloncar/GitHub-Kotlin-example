@@ -1,7 +1,6 @@
 package com.mario.github.mvp.util.extension
-
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.mario.github.mvp.R
 
 /**
@@ -11,11 +10,13 @@ import com.mario.github.mvp.R
 internal fun FragmentManager.removeFragment(tag: String,
                                             slideIn: Int = R.anim.slide_left,
                                             slideOut: Int = R.anim.slide_right) {
-    this.beginTransaction()
-            .disallowAddToBackStack()
-            .setCustomAnimations(slideIn, slideOut)
-            .remove(this.findFragmentByTag(tag))
-            .commitNow()
+    this.findFragmentByTag(tag)?.let {
+        this.beginTransaction()
+                .disallowAddToBackStack()
+                .setCustomAnimations(slideIn, slideOut)
+                .remove(it)
+                .commitNow()
+    }
 }
 
 internal fun FragmentManager.addFragment(containerViewId: Int,

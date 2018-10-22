@@ -3,8 +3,8 @@ package com.mario.github.mvp.ui.base.view
 import android.app.ProgressDialog
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.View
+import androidx.fragment.app.Fragment
 import com.mario.github.mvp.util.CommonUtil
 import dagger.android.support.AndroidSupportInjection
 

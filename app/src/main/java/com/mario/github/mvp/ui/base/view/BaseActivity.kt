@@ -2,7 +2,7 @@ package com.mario.github.mvp.ui.base.view
 
 import android.app.ProgressDialog
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.mario.github.mvp.util.CommonUtil
 import dagger.android.AndroidInjection
 

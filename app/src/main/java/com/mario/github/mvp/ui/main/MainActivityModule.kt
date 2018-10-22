@@ -1,6 +1,6 @@
 package com.mario.github.mvp.ui.main
 
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.mario.github.mvp.ui.main.interactor.MainInteractor
 import com.mario.github.mvp.ui.main.interactor.MainMVPInteractor
 import com.mario.github.mvp.ui.main.presenter.MainMVPPresenter

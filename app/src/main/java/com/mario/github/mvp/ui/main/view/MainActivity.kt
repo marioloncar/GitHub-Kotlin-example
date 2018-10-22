@@ -2,10 +2,11 @@ package com.mario.github.mvp.ui.main.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import android.widget.AdapterView
 import android.widget.SearchView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.jakewharton.rxbinding2.widget.RxSearchView
 import com.mario.github.mvp.R
 import com.mario.github.mvp.data.network.model.Repo
@@ -23,7 +24,6 @@ import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_main.*
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
-import java.util.function.Predicate
 import javax.inject.Inject
 
 /**
@@ -52,7 +52,7 @@ class MainActivity : BaseActivity(), MainMVPView, AdapterView.OnItemSelectedList
         setContentView(R.layout.activity_main)
         presenter.onAttach(this)
 
-        val searchView = findViewById<SearchView>(R.id.searchview)
+        val searchView: SearchView = findViewById(R.id.searchview)
 
         spinner_sort_types.onItemSelectedListener = this
         prepareSearchView(searchView)
@@ -61,7 +61,7 @@ class MainActivity : BaseActivity(), MainMVPView, AdapterView.OnItemSelectedList
     }
 
     private fun prepareRecyclerView() {
-        layoutManager.orientation = LinearLayoutManager.VERTICAL
+        layoutManager.orientation = RecyclerView.VERTICAL
         recyclerview_results.layoutManager = layoutManager
         recyclerview_results.setHasFixedSize(true)
         recyclerview_results.adapter = mainAdapter

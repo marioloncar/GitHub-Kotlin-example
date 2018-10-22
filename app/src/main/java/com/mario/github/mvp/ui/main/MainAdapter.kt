@@ -1,11 +1,11 @@
 package com.mario.github.mvp.ui.main
 
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.mario.github.mvp.R
 import com.mario.github.mvp.data.network.model.Repo
 import com.mario.github.mvp.util.extension.loadImage
