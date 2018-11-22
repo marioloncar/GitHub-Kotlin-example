@@ -1,6 +1,6 @@
 # GitHubAPI-example
 
-- This is an example project using Kotlin, MVP, RxJava2, Dagger2, Retrofit2, Butterknife.
+- This is an example project using Kotlin, MVP, RxJava2, Dagger2, Retrofit2.
 - It uses GitHubAPI and contains: authentication, searching repositories, repository and owner details, current logged in user details.
 
 **In order to run this app you need to get your Client ID and Client Secret key on https://github.com**
