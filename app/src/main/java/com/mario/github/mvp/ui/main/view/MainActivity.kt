@@ -77,6 +77,7 @@ class MainActivity : BaseActivity(), MainMVPView, AdapterView.OnItemSelectedList
         RxSearchView.queryTextChanges(searchView)
                 .debounce(400, TimeUnit.MILLISECONDS)
                 .distinctUntilChanged()
+                .filter { text -> text.isNotBlank() }
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : Observer<CharSequence> {
                     override fun onSubscribe(d: Disposable) {
@@ -84,9 +85,7 @@ class MainActivity : BaseActivity(), MainMVPView, AdapterView.OnItemSelectedList
                     }
 
                     override fun onNext(charSequence: CharSequence) {
-                        if (charSequence.isNotEmpty()) {
-                            presenter.searchRepositories(charSequence.toString())
-                        }
+                        presenter.searchRepositories(charSequence.toString())
                     }
 
                     override fun onError(e: Throwable) {
