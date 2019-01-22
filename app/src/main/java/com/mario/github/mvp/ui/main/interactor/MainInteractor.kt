@@ -13,5 +13,8 @@ import javax.inject.Inject
  */
 
 class MainInteractor @Inject internal constructor(private val repoService: RepoService, preferenceHelper: PreferenceHelper) : BaseInteractor(preferenceHelper = preferenceHelper), MainMVPInteractor {
-    override fun getSearchResults(keyword: String): Observable<List<Repo>>? = repoService.searchRepositories(keyword, preferenceHelper.getSortType()).map(RepoResponse::repos)
+    override fun getSearchResults(keyword: String): Observable<List<Repo>> =
+            repoService
+                    .searchRepositories(keyword, preferenceHelper.getSortType())
+                    .map(RepoResponse::repos)
 }

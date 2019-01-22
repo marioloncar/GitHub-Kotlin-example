@@ -18,23 +18,20 @@ class MainPresenter<V : MainMVPView, I : MainMVPInteractor> @Inject internal con
 
     private var itemList: MutableList<Repo> = ArrayList()
 
-    override fun onAttach(view: V?) {
-        super.onAttach(view)
-    }
-
     override fun searchRepositories(keyword: String) {
-        interactor
-                ?.getSearchResults(keyword)
-                ?.compose(schedulerProvider.ioToMainObservableScheduler())
-                ?.subscribe { t ->
-                    if (t.isEmpty()) {
-                        getView()?.showNoResultsLabel()
-                    } else {
-                        itemList.clear()
-                        itemList.addAll(t)
-                        getView()?.showSearchResults(itemList)
+        interactor?.let {
+            it.getSearchResults(keyword)
+                    .compose(schedulerProvider.ioToMainObservableScheduler())
+                    .subscribe { t ->
+                        if (t.isEmpty()) {
+                            getView()?.showNoResultsLabel()
+                        } else {
+                            itemList.clear()
+                            itemList.addAll(t)
+                            getView()?.showSearchResults(itemList)
+                        }
                     }
-                }
+        }
     }
 
     override fun onSortTypeOptionSelected(sortType: String?) {
